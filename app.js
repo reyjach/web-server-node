@@ -1,15 +1,12 @@
+const express = require('express')
+const app = express()
 
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
 
-const http = require('http');
+app.get('*', (req, res) => {
+    res.send('404 | Page not found')
+  })
 
-http.createServer( (req, res) => {
-
-
-    res.write('hola mundo');
-
-    res.end();
-
-
-}).listen( 8080 );
-
-console.log('Escuchando en el puerto ', 8080);
+app.listen(8080);
